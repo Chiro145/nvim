@@ -2,6 +2,9 @@ local config_dir = vim.fn.stdpath("config")
 local template_dir = config_dir .. "/templates"
 local art_dir = template_dir .. "/arts"
 
+-- seed 1 lần duy nhất
+math.randomseed(vim.loop.hrtime())
+
 vim.api.nvim_create_autocmd("BufNewFile", {
     pattern = "*.cpp",
     callback = function()
@@ -15,7 +18,6 @@ vim.api.nvim_create_autocmd("BufNewFile", {
         end
 
         if #arts > 0 then
-            math.randomseed(os.time())
             local art = arts[math.random(#arts)]
             local last_line = vim.api.nvim_buf_line_count(0)
             vim.cmd(last_line .. "r " .. art)
