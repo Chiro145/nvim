@@ -8,7 +8,7 @@ template<typename...A>void fprint(A&&...a){(cout<<...<<a);}
 template<typename...A>void scan(A&...a){((cin>>a),...);}
 template<typename...A> void debug(char l,[[maybe_unused]]A...a){
 #ifdef IS_CHIRO
-cout<<"[DEBUG "<<char(l+65)<<"] ";((cout<<a<<" "),...);cout<<endl;
+cout<<"[DEBUG "<<char(l+65)<<"] ";((cout<<a<<" "),...);cout<<'\n';
 #endif
 } 
 #define FOR(x, a, b) for (int x = (a); (x) <= (b); ++(x))
